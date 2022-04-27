@@ -1,0 +1,42 @@
+.received-msg {
+    background-color: var(--grey);
+    display: inline;
+    border-radius: 20px;
+    margin: 30px 0px;
+}
+
+.msg-img {
+    width: 30px;
+    margin: 5px 5px;
+    border-radius: 50%;
+
+}
+
+.msg-received {
+    font-size: 17px;
+    margin-top: 5px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.send-msg {
+    display: inline;
+    border-radius: 20px;
+    margin: 30px 0px;
+}
+
+.msg-send {
+    font-size: 17px;
+    margin-top: 5px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.msg-text-box {
+    width: 90%;
+}
+
+.send-btn {
+    height: 48px;
+    width: 100px;
+}

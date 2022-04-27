@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Marketing & Advertisement",
+        "service_duration": 60,
+        "service_details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet arcu non mi sollicitudin ornare. Donec congue enim sed elit molestie, in maximus arcu ultricies. Integer vestibulum ultrices tortor eget venenatis. Integer vel pretium diam"
+    },
+    {
+        "id": 2,
+        "name": "Web Development",
+        "service_duration": 30,
+        "service_details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet arcu non mi sollicitudin ornare. Donec congue enim sed elit molestie, in maximus arcu ultricies. Integer vestibulum ultrices tortor eget venenatis. Integer vel pretium diam"
+    },
+    {
+        "id": 3,
+        "name": "Mobile Application Development",
+        "service_duration": 60,
+        "service_details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet arcu non mi sollicitudin ornare. Donec congue enim sed elit molestie, in maximus arcu ultricies. Integer vestibulum ultrices tortor eget venenatis. Integer vel pretium diam"
+    }
+]

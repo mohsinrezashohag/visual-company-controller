@@ -1,0 +1,38 @@
+
+.single-service{
+    border-radius: 15px;
+  
+       padding: 10px;
+       box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+   
+   }
+   
+   .service-text{
+       text-align: left;
+       margin: 15px 15px;
+   }
+   
+   .service-image{
+       border-radius: 15px;
+       height: 250px;
+       
+   }
+
+   .section-heading{
+       margin:  25px 0px;
+       text-transform: uppercase;
+       color: var(--text);
+   }
+   .sub-heading{
+       font-size: 15px;
+       margin: -20px;
+       margin-bottom: 30px;
+   }
+
+   .see-book-btn{
+
+    background-color: var(--side);
+    padding: 10px;
+    border:none;
+    border-radius: 5px;
+   }
