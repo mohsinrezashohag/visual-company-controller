@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Login.css'
+import image from '../../../Images/login.jpg'
 
 const Login = () => {
 
@@ -20,7 +21,7 @@ const Login = () => {
         googleSignIn()
             .then((result) => {
                 setUser(result.user)
-                navigate(redirect_url)
+                navigate("/dashboard/front")
             })
     }
 
@@ -40,7 +41,7 @@ const Login = () => {
                 // Signed in 
                 const user = userCredential.user;
                 setUser(user);
-                navigate(redirect_url)
+                navigate("/dashboard/front")
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -53,50 +54,63 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className="container">
 
-            <h2>Login Now</h2>
-
-            <div >
-
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input className='input-field' {...register("email")} placeholder="Email" type='email' />
-                    <br />
-                    <input className='input-field' {...register("password")} placeholder="Password" type='password' />
-
-
-                    {/* <br />
-                <select className='input-field' {...register("gender")}>
-                    <option value="female">female</option>
-                    <option value="male">male</option>
-                    <option value="other">other</option>
-                </select>
-                <br /> */}
+            <div className="row login-user">
 
 
 
+                <div className="col-md-6 text-right">
 
-                    <br />
-                    <input className='mt-4' type="submit" />
-                </form>
+                    <img className="img-fluid" src={image} alt="" />
 
-                <Link to='/register'>  <p className='m-2 text-danger'>Not Registered yet ?</p>  </Link>
-
-            </div>
+                </div>
 
 
+                <div className="col-md-6 login-fields">
+
+                    <h6 className="page-header">Login Now</h6>
+
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input className='input-field' {...register("email")} placeholder="Email" type='email' />
+                        <br />
+                        <input className='input-field' {...register("password")} placeholder="Password" type='password' />
+
+                        <br />
+
+                        <p className="text-danger">{error}</p>
+
+
+                        <div className="d-flex">
+                            <button type="submit" className="my-button me-3">Login Now </button>
+
+                            <NavLink to='/register' className="my-button" style={{ width: '180px', backgroundColor: 'orang', color: 'white' }} >  <p className='m-2 text-danger'>Not Registered yet ?</p>  </NavLink>
+
+                        </div>
+                    </form>
 
 
 
-            <br />
+                </div>
 
 
 
 
 
-            <button onClick={googleSignIn_Page} className='btn btn-danger'> Google Login</button>
 
-        </div>
+            </div >
+
+
+
+
+
+
+
+            {/* <br /> */}
+
+            {/* <button onClick={googleSignIn_Page} className='btn btn-danger'> Google Login</button> */}
+
+        </div >
     );
 };
 

@@ -11,6 +11,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({})
     const [error, setError] = useState("")
     const [isLoading, setIsLoading] = useState(true)
+    const [cto, setCTO] = useState(false)
     const [manager, setManager] = useState(false)
     // const location = useLocation();
     // const redirect_url = location?.state?.from || '/'
@@ -44,13 +45,6 @@ const useFirebase = () => {
 
 
 
-
-
-
-
-
-
-
     // get current user when reload
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -64,6 +58,17 @@ const useFirebase = () => {
     }, [auth])
 
 
+
+
+    // check user is CTO or Not
+    useEffect(() => {
+        const url = `http://localhost:5000/cto/${user.email}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setCTO(data.isCTO))
+
+    }, [user.email])
+
     // check user is Manager or not 
     useEffect(() => {
         const url = `http://localhost:5000/user/${user.email}`
@@ -71,6 +76,10 @@ const useFirebase = () => {
             .then(res => res.json())
             .then(data => setManager(data.isManager))
     }, [user.email])
+
+
+
+
 
 
 
@@ -106,7 +115,9 @@ const useFirebase = () => {
         isLoading,
         setError,
         error,
-        manager
+        cto,
+        manager,
+
 
 
     }

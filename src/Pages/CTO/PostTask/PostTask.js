@@ -31,11 +31,6 @@ const PostTask = () => {
             <div className="mt-5 w-75">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    {/* <select className="input-field input-group" {...register("gender")}>
-                        <option defaultValue="1">Chose A Manager</option>
-                        <option value="male">male</option>
-                        <option value="other">other</option>
-                    </select> */}
 
                     <br />
 

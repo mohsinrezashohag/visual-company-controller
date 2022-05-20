@@ -1,17 +1,19 @@
 import { getAuth, updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
+import './Register.css'
+import image from '../../../Images/login.jpg'
+
+
+
 
 const Register = () => {
 
     const { emailPassSignUp, error, setError, setUser, user } = useFirebase();
     const { register, handleSubmit } = useForm();
-    const location = useLocation();
-    // const redirect_url = location?.state?.from || '/'
     const navigate = useNavigate()
-
 
 
 
@@ -34,12 +36,14 @@ const Register = () => {
                         setError(error)
                     });
 
-
+                    navigate('/dashboard/front')
                 })
                 .catch((error) => {
                     const errorMessage = error.message;
                     setError(errorMessage)
                 });
+
+
 
         }
         else {
@@ -52,10 +56,8 @@ const Register = () => {
 
 
     //adding register user to database
-
     const putRegisterUserToDatabase = (name, email) => {
         const user = { name: name, email: email };
-
         fetch('http://localhost:5000/addUser', {
             method: 'POST',
             headers: {
@@ -67,9 +69,6 @@ const Register = () => {
             .then(data => {
                 console.log(data);
             })
-
-
-
     }
 
 
@@ -77,37 +76,97 @@ const Register = () => {
 
 
     return (
-        <div>
-            <h2>Register Now</h2>
 
 
-            <div >
+        <div className="container register-user">
 
-                <p>{error}</p>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input className='input-field' {...register("name")} placeholder="Name" type='text' />
-                    <br />
+            <div className="row">
 
-                    <input className='input-field' {...register("email")} placeholder="Email" type='email' />
-                    <br />
-
-                    <input className='input-field' {...register("password")} placeholder="Password" type='password' />
-
-                    <br />
-
-                    <input className='input-field' {...register("confirmPassword")} placeholder="Confirm Password" type='password' />
+                <div className="col-md-6 text-right">
+                    <img className="img-fluid" src={image} alt="" />
+                </div>
 
 
+                <div className="col-md-6">
+
+
+                    <div >
+                        <h6 className="page-header">Register Now</h6>
+                        <p className="text-danger">{error}</p>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input className='input-field' {...register("name")} placeholder="Name" type='text' />
+                            <br />
+
+                            <input className='input-field' {...register("email")} placeholder="Email" type='email' />
+                            <br />
+
+                            <input className='input-field' {...register("password")} placeholder="Password" type='password' />
+
+                            <br />
+
+                            <input className='input-field' {...register("confirmPassword")} placeholder="Confirm Password" type='password' />
+
+                            <br />
 
 
 
-                    <br />
-                    <input className='mt-4' type="submit" />
-                </form>
+                            <div className="d-flex">
 
-                <Link to='/login'>  <p className='m-2 text-danger'>Already Registered ?</p>  </Link>
+                                <button type="submit" className='my-button me-3'>Register Now</button>
 
-            </div>
+                                <NavLink to='/login' className="my-button" style={{ width: '180px', backgroundColor: 'orang', color: 'white' }} >  <p className='m-2 text-danger'>Already Registered ?</p>  </NavLink>
+
+                            </div>
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </div >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
     );

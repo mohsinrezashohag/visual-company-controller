@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import './SingleTask.css'
 
 const SingleTask = (props) => {
 
-    const { title, deadline, summery } = props.task;
+    const { title, deadline, summery, _id } = props.task;
 
     return (
         <div className="col-12 col-sm-8 col-md-6 col-lg-4 mt-3">
@@ -19,24 +22,14 @@ const SingleTask = (props) => {
                     </small>
 
                     {/* {summery.slice(0, 100)} */}
-                    <p className="card-text">
+                    <div className="card-text">
                         {summery.length >= 100 ? <p>{summery.slice(0, 100)}</p> : <p>{summery}</p>}
-                    </p>
+                    </div>
 
 
+                    <button className="btn btn-info"><NavLink className="card-nav-link" to={`/dashboard/taskDetails/${_id}`}>See Details & Take Action</NavLink></button>
 
-                    <a href="" className="btn btn-info">See Details & Take Action </a>
                 </div>
-
-                {/* <div className="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-                    <div className="views">Oct 20, 12:45PM
-                    </div>
-                    <div className="stats">
-                        <i className="far fa-eye"></i> 1347
-                        <i className="far fa-comment"></i> 12
-                    </div>
-                </div> */}
-
 
 
             </div>

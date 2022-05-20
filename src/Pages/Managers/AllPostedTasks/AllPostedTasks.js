@@ -9,13 +9,20 @@ const AllPostedTasks = () => {
             .then(res => res.json())
             .then(data => setTasks(data))
     }, [])
+
+    const remainingTasks = tasks.filter(task => task.isAccepted === false)
     return (
         <div>
 
-            <h6 className="page-header">All Posted Tasks & Projects</h6>
+
             <div className="container">
+
+                <div className="d-flex justify-content-between">
+                    <h6 className="page-header">All Posted Projects</h6>
+                    <h6 className="page-header text-dark me-4">{remainingTasks.length} Projects</h6>
+                </div>
                 <div className="row">
-                    {tasks.map((task) => <SingleTask task={task} key={task._id} ></SingleTask>)}
+                    {remainingTasks.map((task) => <SingleTask task={task} key={task._id} ></SingleTask>)}
                 </div>
             </div>
 

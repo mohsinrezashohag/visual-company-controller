@@ -10,7 +10,18 @@ const MakeManager = () => {
 
 
     const onSubmit = data => {
-        console.log(data);
+        const user = data;
+        console.log(user);
+
+        fetch('http://localhost:5000/makeManager', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
 
     }
 

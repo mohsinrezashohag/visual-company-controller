@@ -1,0 +1,21 @@
+.table-action {
+    text-decoration: none;
+    color: white;
+    background: rgb(119, 223, 255);
+    padding: 7px;
+    font-size: 12px;
+    border-radius: 50px;
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border: none;
+
+}
+
+.table {
+
+    border-radius: 50px;
+    padding: 100px;
+}
