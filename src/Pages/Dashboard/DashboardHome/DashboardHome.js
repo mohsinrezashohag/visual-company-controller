@@ -80,6 +80,7 @@ const DashboardHome = () => {
                                     <NavLink className="nav-link page-link" to='/dashboard/front'>Dashboard</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/myWorks'>My Works</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/myReport'>My Reports</NavLink>
+                                    <NavLink className="nav-link page-link" to='/dashboard/request'>Request & Complaints</NavLink>
 
                                 </div>
 

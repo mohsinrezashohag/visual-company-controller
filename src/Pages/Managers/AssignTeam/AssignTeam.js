@@ -102,7 +102,7 @@ const AssignTeam = () => {
 
                                     <div className='mt-4'>
                                         <p className="strong-text">Write instructions & working Procedure</p>
-                                        <input className="instruction" name={"instruction"} type="textarea" {...register(`instruction}`)} id="instruction" placeholder="Write introduction about this project & working method" />
+                                        <input className="instruction" name={"instruction"} type="textarea" {...register(`instruction`)} id="instruction" placeholder="Write introduction about this project & working method" />
                                     </div>
 
 
@@ -128,6 +128,17 @@ const AssignTeam = () => {
 
                             <button type="submit" className="btn btn-info mt-4">Assign As this Project Team</button>
                         </form>
+
+                    </div>
+
+
+
+
+                    {/* checking multiple select ways */}
+
+
+                    <div>
+
 
                     </div>
 

@@ -12,29 +12,12 @@ const MyWorks = () => {
     }, [])
 
     const userName = user.displayName;
-    console.log(typeof userName);
-    const check = myWorks.filter(element => element.sharif === true);
-    console.log(check);
-
-    for (let i = 0; i < myWorks.length; i++) {
-
-        console.log(myWorks[i]);
-
-        if (myWorks[i].userName === true) {
-
-            console.log(myWorks[i]);
-        }
-
-    }
 
 
 
 
 
 
-
-
-    // console.log("this is my works", myWorks);
     // const [ownWorks, setOwnWorks] = useState([]);
     // useEffect(() => {
     //     fetch(`http://localhost:5000/check/${user.displayName}`)
@@ -45,16 +28,6 @@ const MyWorks = () => {
 
 
 
-
-    // console.log(userName);
-    // const myAssignedWorks = myWorks.filter(work => {
-
-    //     if (work.userName === true) {
-    //         return works
-    //     }
-
-    // });
-    // console.log(myAssignedWorks);
 
 
 
@@ -67,7 +40,7 @@ const MyWorks = () => {
 
                 {/* <p>{work.title}</p> */}
 
-                {`work.${userName}` ? <p> Hello</p> : <p>Nai</p>}
+                {work.userName ? <p> Hello</p> : <p>Nai</p>}
 
 
             </div>)

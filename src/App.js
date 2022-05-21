@@ -18,6 +18,7 @@ import MyRunningTasks from './Pages/Managers/MyRunningTasks/MyRunningTasks';
 import TaskDetails from './Pages/Managers/TaskDetails/TaskDetails';
 import MyReport from './Pages/Workers/MyReport/MyReport';
 import MyWorks from './Pages/Workers/MyWorks/MyWorks';
+import Requests from './Pages/Workers/Requests/Requests';
 
 
 
@@ -70,6 +71,7 @@ function App() {
               {/* workers page Link */}
               <Route path='myWorks' element={<PrivateRouter> <MyWorks></MyWorks> </PrivateRouter>} />
               <Route path='myReport' element={<PrivateRouter> <MyReport></MyReport> </PrivateRouter>} />
+              <Route path='request' element={<PrivateRouter> <Requests></Requests> </PrivateRouter>} />
 
 
 
