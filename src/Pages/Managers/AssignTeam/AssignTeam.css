@@ -12,5 +12,15 @@
 .strong-text {
     font-size: 15px;
     font-weight: 500;
+}
 
+.worker-label {
+    text-transform: capitalize;
+    margin: 5px 10px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    ;
+    font-size: 20px;
+    background-color: var(--light-blue);
+    width: 90%;
 }

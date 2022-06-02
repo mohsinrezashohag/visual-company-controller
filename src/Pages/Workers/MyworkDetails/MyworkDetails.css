@@ -1,0 +1,9 @@
+.special-text {
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+.special-bg {
+    background-color: var(--light-blue)
+}

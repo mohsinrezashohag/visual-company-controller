@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import './AssignTeam.css'
 
 const AssignTeam = () => {
 
-
+    const { user } = useAuth();
     const { id } = useParams();
     const [project, setProject] = useState({})
     const navigate = useNavigate()
@@ -15,8 +16,6 @@ const AssignTeam = () => {
             .then((response) => response.json())
             .then(data => setProject(data))
     }, [])
-
-
 
     const [employees, setEmployees] = useState([])
     useEffect(() => {
@@ -28,6 +27,34 @@ const AssignTeam = () => {
     const workers = employees.filter(employee => employee.role !== "cto" && employee.role !== "manager")
 
 
+    const [datas, setdatas] = useState([]);
+    const getvalue = (e) => {
+        const value = e.target.value;
+        if (datas.filter(data => data == value).length == 0) {
+            setdatas([...datas, value]);
+        } else {
+            const newdata = datas.filter(data => data != value);
+            setdatas(newdata);
+        }
+    }
+
+    console.log(datas);
+
+
+    const { title, deadline, summery } = project;
+
+    // update managers accepted project
+    const updateManagersAcceptedProjects = () => {
+        const projectTitle = { title }
+        fetch(`http://localhost:5000/updateManagerProject`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(projectTitle)
+        })
+    }
+
+
+
 
 
 
@@ -36,15 +63,18 @@ const AssignTeam = () => {
     const onSubmit = data => {
 
         const { title, deadline, summery } = project;
+        data.AssignedMembers = datas;
         data.title = title;
         data.deadline = deadline;
         data.Summery = summery;
         data.isComplete = false;
+        data.manager = user.displayName;
 
         console.log(data);
 
-        if (window.confirm("Are you sure about this ? ")) {
 
+        if (window.confirm("Are you sure about this ? ")) {
+            updateManagersAcceptedProjects();
             fetch('http://localhost:5000/assignWorkers', {
                 method: 'POST',
                 headers: {
@@ -56,7 +86,8 @@ const AssignTeam = () => {
 
         }
 
-        navigate('/dashboard/myRunningTasks')
+        navigate('/dashboard/myAcceptedProjects')
+        window.location.reload();
 
         reset();
     };
@@ -108,16 +139,25 @@ const AssignTeam = () => {
 
                                     <div className="pt-5">
                                         <p className="strong-text">Select Uses  for this project</p>
-                                        {workers.map(worker =>
-                                            <div key={worker.name}>
-
-                                                <input name={worker.name} type="checkbox" {...register(`${worker.name}`)} id={worker.name} />
-                                                <label htmlFor={worker.name} className="form-check-label me-2 checkbox-input">{worker.name}</label>
-
-                                                <br />
 
 
-                                            </div>)}
+                                        <div >
+                                            {/* {
+                                                datas.map(display => <li key={display}>{display}</li>)
+                                            } */}
+
+                                            {
+                                                workers.map(worker => (
+                                                    <div key={worker._id} >
+                                                        <input type="checkbox" value={worker.name}
+                                                            onClick={(e) => getvalue(e)} />
+                                                        <label className="worker-label">{worker.name}</label>
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+
+
                                     </div>
 
                                 </div>
@@ -134,13 +174,25 @@ const AssignTeam = () => {
 
 
 
+
+
+
+
+
+
+
                     {/* checking multiple select ways */}
 
 
-                    <div>
 
 
-                    </div>
+
+
+
+
+
+
+
 
 
                 </div>

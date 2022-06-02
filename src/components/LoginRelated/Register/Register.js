@@ -37,6 +37,7 @@ const Register = () => {
                     });
 
                     navigate('/dashboard/front')
+                    window.location.reload();
                 })
                 .catch((error) => {
                     const errorMessage = error.message;

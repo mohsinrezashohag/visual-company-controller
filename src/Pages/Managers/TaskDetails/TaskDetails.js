@@ -33,7 +33,7 @@ const TaskDetails = (props) => {
 
     const handleProjectAccept = () => {
         modifyPostedProject();
-        const acceptedProject = { _id: _id, manager: user.displayName, email: user.email, title: title, deadline: deadline, summery: summery }
+        const acceptedProject = { _id: _id, manager: user.displayName, email: user.email, title: title, deadline: deadline, summery: summery, isAssigned: false }
         if (window.confirm("Are you sure about accepting the project ? ")) {
             fetch('http://localhost:5000/acceptedProject', {
                 method: 'POST',
@@ -55,9 +55,9 @@ const TaskDetails = (props) => {
 
     return (
         <div>
-            <h6 className="page-header">Project Details</h6>
+            <h6 className="page-header mb-5">Project Details</h6>
 
-            <div className="mt-3">
+            <div className="mt-5">
                 <h2>{task.title}</h2>
                 <h5>Deadline : <span className="text-info">{task.deadline}</span> </h5>
                 <div className="d-flex">Priority : {task.high && <p className="text-danger">high</p>} {task.medium && <p className="text-info">medium</p>} {task.normal && <p className="text-primary">normal</p>} </div>

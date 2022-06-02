@@ -27,6 +27,7 @@ const MakeManager = () => {
 
 
 
+
     return (
         <div>
             <h6 className="page-header">Make Manager</h6>

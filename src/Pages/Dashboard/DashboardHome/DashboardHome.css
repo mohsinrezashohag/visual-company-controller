@@ -15,9 +15,8 @@
 
 .sidebar {
 
-    background-color: var(--grey);
+    /* background-color: var(--grey); */
     border-radius: 30px;
-    height: 100vh;
 }
 
 .user-container {
@@ -55,6 +54,7 @@
 
     border-radius: 10px;
     background-color: var(--light);
+    height: 100vh;
 
 }
 

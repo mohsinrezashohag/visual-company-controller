@@ -1,10 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import './PostTask.css'
 
 const PostTask = () => {
 
     const { register, handleSubmit, reset } = useForm();
+    const navigate = useNavigate()
+
+
     const onSubmit = data => {
         // const { title, summery, normal, medium, high, deadline } = data;
         fetch('http://localhost:5000/addTask',
@@ -17,7 +21,7 @@ const PostTask = () => {
             })
             .then(res => res.json())
             .then(data => console.log(data))
-
+        navigate('/dashboard/front')
         reset();
     };
 
@@ -26,7 +30,7 @@ const PostTask = () => {
     return (
         <div>
 
-            <h6 className="page-header">Add New Task</h6>
+            <h6 className="page-header">Add New Project</h6>
 
             <div className="mt-5 w-75">
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,8 +70,8 @@ const PostTask = () => {
 
 
 
+                    <button type="submit" className="btn btn-info">Post Project</button>
 
-                    <input type="submit" />
                 </form>
             </div>
 

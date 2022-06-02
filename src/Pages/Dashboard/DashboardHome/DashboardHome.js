@@ -60,10 +60,11 @@ const DashboardHome = () => {
                                 <div>
                                     <NavLink className="nav-link page-link" to='/dashboard/front'>Dashboard</NavLink>
 
-                                    <NavLink className="nav-link page-link" to='/dashboard/allPostedTasks'>Remaining Tasks</NavLink>
-                                    <NavLink className="nav-link page-link" to='/dashboard/myRunningTasks'>My Running Tasks</NavLink>
-                                    {/* <NavLink className="nav-link page-link" to='/dashboard/chat'>Team & Projects</NavLink> */}
+                                    <NavLink className="nav-link page-link" to='/dashboard/allPostedTasks'>Remaining Projects</NavLink>
+                                    <NavLink className="nav-link page-link" to='/dashboard/myAcceptedProjects'>Accepted Projects</NavLink>
+                                    <NavLink className="nav-link page-link" to='/dashboard/projectUnderMe'>Projects Under Me</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/chat'>Chat Room</NavLink>
+
 
                                 </div>
                             }
@@ -79,6 +80,7 @@ const DashboardHome = () => {
                                 <div>
                                     <NavLink className="nav-link page-link" to='/dashboard/front'>Dashboard</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/myWorks'>My Works</NavLink>
+                                    <NavLink className="nav-link page-link" to='/dashboard/mySubmissions'>My Submissions</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/myReport'>My Reports</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/request'>Request & Complaints</NavLink>
 

@@ -1,0 +1,13 @@
+.team-member {
+    text-transform: capitalize;
+    margin: 5px;
+    background-color: var(--light-blue);
+    padding: 5px;
+    border-radius: 3px;
+
+
+}
+
+.warning-text {
+    text-transform: uppercase;
+}

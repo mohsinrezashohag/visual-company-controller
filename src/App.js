@@ -12,11 +12,15 @@ import Projects from './Pages/CTO/Projects/Projects';
 import RequestsComplaints from './Pages/CTO/RequestsComplaints/RequestsComplaints';
 import DashboardFront from './Pages/Dashboard/DashboardFront/DashboardFront';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import AcceptedProjects from './Pages/Managers/AcceptedProjects/AcceptedProjects';
 import AllPostedTasks from './Pages/Managers/AllPostedTasks/AllPostedTasks';
 import AssignTeam from './Pages/Managers/AssignTeam/AssignTeam';
-import MyRunningTasks from './Pages/Managers/MyRunningTasks/MyRunningTasks';
+import ProjectsUnderMe from './Pages/Managers/ProjectsUnderMe/ProjectsUnderMe';
+import ReviewAction from './Pages/Managers/ReviewAction/ReviewAction';
 import TaskDetails from './Pages/Managers/TaskDetails/TaskDetails';
 import MyReport from './Pages/Workers/MyReport/MyReport';
+import MySubmissions from './Pages/Workers/MySubmissions/MySubmissions';
+import MyworkDetails from './Pages/Workers/MyworkDetails/MyworkDetails';
 import MyWorks from './Pages/Workers/MyWorks/MyWorks';
 import Requests from './Pages/Workers/Requests/Requests';
 
@@ -63,13 +67,17 @@ function App() {
 
               {/* Managers pages links */}
               <Route path='allPostedTasks' element={<PrivateRouter> <AllPostedTasks></AllPostedTasks>  </PrivateRouter>} />
-              <Route path='myRunningTasks' element={<PrivateRouter> <MyRunningTasks></MyRunningTasks> </PrivateRouter>} />
+              <Route path='myAcceptedProjects' element={<PrivateRouter> <AcceptedProjects></AcceptedProjects></PrivateRouter>} />
               <Route path='taskDetails/:id' element={<PrivateRouter> <TaskDetails></TaskDetails> </PrivateRouter>} />
               <Route path='assignTeam/:id' element={<PrivateRouter> <AssignTeam></AssignTeam> </PrivateRouter>}></Route>
+              <Route path='projectUnderMe' element={<PrivateRouter> <ProjectsUnderMe></ProjectsUnderMe> </PrivateRouter>} />
+              <Route path='reviewAction/:projectTitle' element={<PrivateRouter> <ReviewAction></ReviewAction></PrivateRouter>} />
 
 
               {/* workers page Link */}
               <Route path='myWorks' element={<PrivateRouter> <MyWorks></MyWorks> </PrivateRouter>} />
+              <Route path='workDetails/:id' element={<PrivateRouter> <MyworkDetails></MyworkDetails> </PrivateRouter>} />
+              <Route path='mySubmissions' element={<PrivateRouter> <MySubmissions></MySubmissions> </PrivateRouter>} />
               <Route path='myReport' element={<PrivateRouter> <MyReport></MyReport> </PrivateRouter>} />
               <Route path='request' element={<PrivateRouter> <Requests></Requests> </PrivateRouter>} />
 
