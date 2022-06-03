@@ -34,7 +34,7 @@ const MyWorks = () => {
     return (
         <div className="container">
             <div className="d-flex justify-content-between">
-                <h6 className="page-header">My Existing Works</h6>
+                <h6 className="page-header">Works Need To Complete </h6>
                 <h6 className="page-header text-dark me-4">{existingWorks.length} Projects</h6>
             </div>
 

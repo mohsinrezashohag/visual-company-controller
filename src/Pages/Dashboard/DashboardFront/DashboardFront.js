@@ -116,8 +116,8 @@ const DashboardFront = () => {
     const userName = user.displayName;
 
     const myWorks = works.filter(work => work.AssignedMembers.includes(userName))
-    const myCompletedWorks = works.filter(work => work.isComplete === true)
-    const myRunningWorks = works.filter(work => work.isComplete !== true)
+    const myCompletedWorks = myWorks.filter(work => work.isComplete === true)
+    const myRunningWorks = myWorks.filter(work => work.isComplete !== true)
 
 
 
@@ -269,10 +269,10 @@ const DashboardFront = () => {
                 </div>
             }
 
+
+
             {manager &&
-
                 <div className="row">
-
 
                     <div className="col-xl-4 col-sm-4 col-12">
                         <div className="card">
@@ -284,12 +284,11 @@ const DashboardFront = () => {
                     </div>
 
 
-
                     <div className="col-xl-4 col-sm-4 col-12">
                         <div className="card">
                             <div className="card-body">
 
-                                <h2>Projects Running</h2>
+                                <h2>Projects Done</h2>
                                 <h1>{managerDoneProjects.length}</h1>
                             </div>
                         </div>
@@ -397,8 +396,31 @@ const DashboardFront = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
+
+                    <div className="row">
+
+                        <div className="col-md-6">
+
+                        </div>
+
+
+                        <div className="col-md-6">
+
+                            <div>
+                                <h6 className="page-header">Join Meeting</h6>
+                                {meetings.length === 0 ? "No meetings Available to join" : <div>
+
+                                    {meetings.map(meeting => <div key={meeting._id} className='text-btn-container mt-3' >
+                                        <h6 className="meeting-title">📌 {meeting.meetingTitle}</h6>
+                                        <a href={meeting.meetingLink} target="_blank" ><button className="btn btn-info me-2" >Join Meeting</button></a>
+                                    </div>)}
+                                </div>}
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
 

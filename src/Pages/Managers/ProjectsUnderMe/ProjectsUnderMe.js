@@ -8,7 +8,7 @@ const ProjectsUnderMe = () => {
     const [allProjects, setAllProjects] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/projectsRunning')
+        fetch('http://localhost:5000/assignedProjectsCollection')
             .then(res => res.json())
             .then(data => setAllProjects(data))
     }, [])

@@ -6,7 +6,7 @@ import PrivateRouter from './components/LoginRelated/PrivateRouter/PrivateRouter
 import Register from './components/LoginRelated/Register/Register';
 import ChatRoom from './Pages/CTO/ChatRoom/ChatRoom';
 import Employees from './Pages/CTO/Employees/Employees';
-import MakeManager from './Pages/CTO/MakeManager/MakeManager';
+import MyPostedTasks from './Pages/CTO/MyPostedTasks/MyPostedTasks';
 import PostTask from './Pages/CTO/PostTask/PostTask';
 import Projects from './Pages/CTO/Projects/Projects';
 import RequestsComplaints from './Pages/CTO/RequestsComplaints/RequestsComplaints';
@@ -15,6 +15,7 @@ import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import AcceptedProjects from './Pages/Managers/AcceptedProjects/AcceptedProjects';
 import AllPostedTasks from './Pages/Managers/AllPostedTasks/AllPostedTasks';
 import AssignTeam from './Pages/Managers/AssignTeam/AssignTeam';
+import MySubmitedProjects from './Pages/Managers/MySubmitedProjects/MySubmitedProjects';
 import ProjectsUnderMe from './Pages/Managers/ProjectsUnderMe/ProjectsUnderMe';
 import ReviewAction from './Pages/Managers/ReviewAction/ReviewAction';
 import TaskDetails from './Pages/Managers/TaskDetails/TaskDetails';
@@ -58,8 +59,8 @@ function App() {
               <Route path='front' element={<PrivateRouter> <DashboardFront></DashboardFront> </PrivateRouter>} />
 
               {/* CTO pages links */}
-              <Route path='make_manager' element={<PrivateRouter> <MakeManager></MakeManager> </PrivateRouter>} />
               <Route path='post_task' element={<PrivateRouter> <PostTask></PostTask> </PrivateRouter>} />
+              <Route path='myPostedTasks' element={<PrivateRouter> <MyPostedTasks></MyPostedTasks> </PrivateRouter>} />
               <Route path='employees' element={<PrivateRouter> <Employees></Employees> </PrivateRouter>} />
               <Route path='chat' element={<PrivateRouter> <ChatRoom></ChatRoom> </PrivateRouter>} />
               <Route path='projects' element={<PrivateRouter> <Projects></Projects> </PrivateRouter>} />
@@ -71,6 +72,7 @@ function App() {
               <Route path='taskDetails/:id' element={<PrivateRouter> <TaskDetails></TaskDetails> </PrivateRouter>} />
               <Route path='assignTeam/:id' element={<PrivateRouter> <AssignTeam></AssignTeam> </PrivateRouter>}></Route>
               <Route path='projectUnderMe' element={<PrivateRouter> <ProjectsUnderMe></ProjectsUnderMe> </PrivateRouter>} />
+              <Route path='mySubmittedProjects' element={<PrivateRouter> <MySubmitedProjects></MySubmitedProjects> </PrivateRouter>} />
               <Route path='reviewAction/:projectTitle' element={<PrivateRouter> <ReviewAction></ReviewAction></PrivateRouter>} />
 
 

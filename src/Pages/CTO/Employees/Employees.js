@@ -12,8 +12,25 @@ const Employees = () => {
             .then(data => setEmployees(data))
     }, [])
 
-    const handleActions = () => {
+
+    const handleMakeManager = (email) => {
+        const user = { email }
+        if (window.confirm("Are you sure ?")) {
+
+            fetch('http://localhost:5000/makeManager', {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+
+        }
+        window.location.reload();
     }
+
 
 
     // pdf related works trying
@@ -60,11 +77,16 @@ const Employees = () => {
 
 
 
-                                <td className='d-flex'>
+                                <td >
 
-                                    <div className='me-3' >
-                                        <button onClick={() => handleActions(employee?._id)} className="btn btn-danger"><i className="fas fa-trash-alt"></i> Cancel employee</button>
-                                    </div>
+                                    {employee?.role !== "manager" ?
+
+                                        <div className='me-3' >
+                                            <button button onClick={() => handleMakeManager(employee?.email)} className="btn btn-warning">🙍‍♂️ Make Manager</button>
+                                        </div> : <p>No Action Needed</p>
+                                    }
+
+
                                 </td>
 
                             </tr>)
@@ -73,12 +95,12 @@ const Employees = () => {
                     </tbody>
                 </Table>
 
-            </div>
+            </div >
 
             <button onClick={handlePrint} className="print__button">  Print </button>
 
 
-        </div>
+        </div >
     );
 };
 

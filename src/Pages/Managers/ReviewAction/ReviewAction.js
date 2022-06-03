@@ -10,7 +10,7 @@ const ReviewAction = () => {
 
     const [projects, setProjects] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/projectsRunning')
+        fetch('http://localhost:5000/assignedProjectsCollection')
             .then(res => res.json())
             .then(data => setProjects(data))
     }, [])

@@ -43,10 +43,10 @@ const DashboardHome = () => {
 
                                 <div>
                                     <NavLink className="nav-link page-link" to='/dashboard/front'>Dashboard</NavLink>
-                                    <NavLink className="nav-link page-link" to='/dashboard/projects'>Projects</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/post_task'>Post Project</NavLink>
+                                    <NavLink className="nav-link page-link" to='/dashboard/myPostedTasks'>All Posted Projects</NavLink>
+                                    <NavLink className="nav-link page-link" to='/dashboard/projects'>Projects</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/employees'>See All Employee</NavLink>
-                                    <NavLink className="nav-link page-link" to='/dashboard/make_manager'>Make Manager</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/chat'>Chat Room</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/requestsComplaints'>Requests & Complaints</NavLink>
                                 </div>
@@ -63,6 +63,7 @@ const DashboardHome = () => {
                                     <NavLink className="nav-link page-link" to='/dashboard/allPostedTasks'>Remaining Projects</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/myAcceptedProjects'>Accepted Projects</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/projectUnderMe'>Projects Under Me</NavLink>
+                                    <NavLink className="nav-link page-link" to='/dashboard/mySubmittedProjects'>My Submissions</NavLink>
                                     <NavLink className="nav-link page-link" to='/dashboard/chat'>Chat Room</NavLink>
 
 

@@ -64,7 +64,7 @@ const PostTask = () => {
                     </div>
 
 
-                    <p className='d-block me-3'>Set project deadline</p>
+                    <p className='d-block me-3'><strong>Set project deadline : </strong></p>
                     <input name="deadline" id="deadline" className='input-field input-group' {...register("deadline")} type='Date' />
                     <br />
 

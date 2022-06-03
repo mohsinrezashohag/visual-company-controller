@@ -33,12 +33,6 @@ const MySubmission = () => {
 
 
             <div>
-                {/* {SubmittedWorks.map(work => <div key={work._id}>
-
-                    <p>{work.title}</p>
-
-                </div>)} */}
-
 
                 <div className="row">
                     {SubmittedWorks.map(work => <div key={work._id}>
