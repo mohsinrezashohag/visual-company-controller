@@ -80,9 +80,6 @@ const MyworkDetails = () => {
                         <span className="special-text ms-2">{work.instruction}</span>
                     </h5>
 
-                    {/* <div className="my-5">
-                        <p>Project Team : {JSON.parse(work.AssignedMembers).map(member => <span key={member} className="team-member"> {member} </span>)}</p>
-                    </div> */}
 
                     <div className="special-bg p-3 border rounded-2 me-4 h-100">
 

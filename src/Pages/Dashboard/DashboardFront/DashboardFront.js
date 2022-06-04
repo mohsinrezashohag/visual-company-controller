@@ -85,9 +85,8 @@ const DashboardFront = () => {
             .then(data => setEmployees(data))
     }, [])
 
+    ////////////////////////////////////////////////////////// manager part
 
-
-    //////////////////////////////////////////////////////////////////////////// manager part
     // get all projects under manager
     const [managerProjects, setManagerProjects] = useState([])
     useEffect(() => {
@@ -184,66 +183,41 @@ const DashboardFront = () => {
                     <div className="row">
 
                         <div className="col-md-6">
-                            {/* <h6 className="page-header">My teams</h6> */}
+                            <h6 className="page-header">Last Completed Projects</h6>
+
+                            {doneProjects.map(project => <div className="col-md-12  mt-3">
+
+                                <div className="card">
+
+                                    <div className="card-body">
+
+                                        <h4 className="card-title">📌 {project.title}</h4>
+
+                                        <div className="pt-4">
 
 
-                            <div>
+                                            <div className="">
+                                                <p><strong>🙍‍♂️ Submitted By :</strong> {project.manager} </p>
+                                            </div>
 
+                                        </div>
 
-
-                                <div >
-
-
-
-
-                                    <Table className="table mt-4 " >
-                                        <thead>
-                                            <tr className="border border-3 ">
-
-                                                <th> Name</th>
-                                                <th> Email</th>
-                                                <th>Position</th>
-                                                <th>View Profile</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-
-                                            {employees.map(employee =>
-                                                <tr key={employee?._id} className="border border-2 ">
-                                                    <td>{employee?.name}</td>
-                                                    <td>{employee?.email}</td>
-
-                                                    <td>{employee?.role === "manager" ? <p className="text-info">Manager</p> : <p>Workers</p>} </td>
-
-
-
-                                                    <td className='d-flex'>
-
-                                                        <button className="btn">🙍‍♂️</button>
-
-                                                        {/* <div className='me-3' >
-                                                            <button onClick={() => handleActions(employee?._id)} className="btn btn-danger"><i className="fas fa-trash-alt"></i> Cancel employee</button>
-                                                        </div> */}
-                                                    </td>
-
-                                                </tr>)
-                                            }
-
-                                        </tbody>
-                                    </Table>
+                                    </div>
 
                                 </div>
-
-
-
-                            </div>
-
+                            </div>)}
 
                         </div>
 
+
+
+
+
+
+
                         <div className="col-md-5 m-3">
-                            {/* <h6 className="page-header mb-2">Meeting Announcement</h6> */}
+
+                            <h6 className="page-header mb-2">Meeting Announcement</h6>
 
                             <div className="mt-2">
                                 <form onSubmit={handleSubmit(onSubmit)}>
