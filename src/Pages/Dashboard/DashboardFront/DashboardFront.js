@@ -99,6 +99,23 @@ const DashboardFront = () => {
     const managerDoneProjects = managerProjects.filter(project => project.status === 'done')
 
 
+
+    const [allProjects, setAllProjects] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/assignedProjectsCollection')
+            .then(res => res.json())
+            .then(data => setAllProjects(data))
+    }, [])
+
+    const myRunningProjects = allProjects.filter(project => project.manager === user.displayName)
+    const stillRunning = myRunningProjects.filter(project => project.isComplete !== true)
+    const completedProject = myRunningProjects.filter(project => project.isComplete === true && project.submission !== "done")
+
+
+
+
+
+
     ////////////////////////////////////////////////////////////////////////////////////////////////// workers part 
     let worker = false;
     if (manager === false && cto === false) {
@@ -118,7 +135,6 @@ const DashboardFront = () => {
     const myWorks = works.filter(work => work.AssignedMembers.includes(userName))
     const myCompletedWorks = myWorks.filter(work => work.isComplete === true)
     const myRunningWorks = myWorks.filter(work => work.isComplete !== true)
-
 
 
 
@@ -311,8 +327,55 @@ const DashboardFront = () => {
                     <div className="row">
 
                         <div className="col-md-6">
-                            <h6 className="page-header">My teams</h6>
+
+                            <h6 className="page-header">My Last Projects </h6>
+
+
+                            {stillRunning.slice(0, 2).map(project => <div key={project._id}>
+
+                                <div className="col-md-12  mt-3">
+                                    <div className="card">
+                                        {/* <img className="card-img" src="" alt="Bologna" /> */}
+
+                                        <div className="card-body">
+
+                                            <h4 className="card-title">📌 {project.title}</h4>
+
+
+                                            <small className="text-muted cat">
+                                                ⏱ project deadline : <span className="text-primary">{project.deadline}</span>
+                                            </small>
+
+
+
+                                            <div className="">
+                                                <p>👩‍💻 Project Team :  {project.AssignedMembers.map(member => <span key={member} className="team-member"> {member} </span>)}</p>
+                                            </div>
+
+                                            <p>projecting Process : {project.instruction} </p>
+
+
+                                            {project?.isComplete ? <p className="text-success condition-text">Complete</p> : <p className="text-warning condition-text">On Going</p>}
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>)
+
+                            }
+
+
+                            <button button className="btn btn-info mb-3 m-2"><NavLink className="card-nav-link" to={`/dashboard/projectUnderMe`}>See All Projects</NavLink></button>
+
                         </div>
+
+
+
 
                         <div className="col-md-6">
                             <h6 className="page-header">Meeting Announcement</h6>
@@ -357,7 +420,8 @@ const DashboardFront = () => {
 
 
 
-            {worker &&
+            {
+                worker &&
 
                 <div>
 

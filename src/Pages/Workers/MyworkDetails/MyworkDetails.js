@@ -28,14 +28,6 @@ const MyworkDetails = () => {
     const handleSubmitProject = (e) => {
         e.preventDefault();
 
-        // const sumbitThings = work;
-        // sumbitThings.doneBY = [];
-        // sumbitThings.doneBY.push(userName);
-        // sumbitThings.documents = file;
-
-
-
-
 
         if (!file) {
             setError("Please select a file first 🙂")

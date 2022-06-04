@@ -4,6 +4,9 @@ import AuthProvider from './components/context/AuthProvider';
 import Login from './components/LoginRelated/Login/Login';
 import PrivateRouter from './components/LoginRelated/PrivateRouter/PrivateRouter';
 import Register from './components/LoginRelated/Register/Register';
+import BlogDetails from './Pages/Common/BlogDetails.js/BlogDetails';
+import Blogs from './Pages/Common/Blogs/Blogs';
+import NoticeOrBlogs from './Pages/Common/NoticeOrBlogs/NoticeOrBlogs';
 import ChatRoom from './Pages/CTO/ChatRoom/ChatRoom';
 import Employees from './Pages/CTO/Employees/Employees';
 import MyPostedTasks from './Pages/CTO/MyPostedTasks/MyPostedTasks';
@@ -74,6 +77,11 @@ function App() {
               <Route path='projectUnderMe' element={<PrivateRouter> <ProjectsUnderMe></ProjectsUnderMe> </PrivateRouter>} />
               <Route path='mySubmittedProjects' element={<PrivateRouter> <MySubmitedProjects></MySubmitedProjects> </PrivateRouter>} />
               <Route path='reviewAction/:projectTitle' element={<PrivateRouter> <ReviewAction></ReviewAction></PrivateRouter>} />
+
+              <Route path='blogsOrNotice' element={<PrivateRouter> <NoticeOrBlogs></NoticeOrBlogs> </PrivateRouter>} />
+              <Route path='blogs' element={<PrivateRouter> <Blogs></Blogs> </PrivateRouter>} />
+              <Route path='bolgDetails/:id' element={<PrivateRouter> <BlogDetails></BlogDetails> </PrivateRouter>} />
+
 
 
               {/* workers page Link */}
