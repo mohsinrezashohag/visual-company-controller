@@ -3,3 +3,8 @@
     margin-top: 25px;
     font-weight: 500;
 }
+
+.up-case {
+    text-transform: uppercase;
+    font-size: 25px;
+}

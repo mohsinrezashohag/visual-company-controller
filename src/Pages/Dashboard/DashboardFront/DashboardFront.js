@@ -147,7 +147,7 @@ const DashboardFront = () => {
                     <div className="col-xl-4 col-sm-4 col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h2>Projects Posted</h2>
+                                <h2 className="up-case">Projects Posted</h2>
                                 <h1>{projects.length}</h1>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ const DashboardFront = () => {
                         <div className="card">
                             <div className="card-body">
 
-                                <h2>Projects Running</h2>
+                                <h2 className="up-case">Projects Running</h2>
                                 <h1>{runningProjects.length}</h1>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ const DashboardFront = () => {
                         <div className="card">
                             <div className="card-body">
 
-                                <h2>Projects Done</h2>
+                                <h2 className="up-case">Projects Done</h2>
                                 <h1>{doneProjects.length}</h1>
 
                             </div>
@@ -185,7 +185,7 @@ const DashboardFront = () => {
                         <div className="col-md-6">
                             <h6 className="page-header">Last Completed Projects</h6>
 
-                            {doneProjects.map(project => <div className="col-md-12  mt-3">
+                            {doneProjects.map(project => <div key={project._id} className="col-md-12  mt-3">
 
                                 <div className="card">
 
@@ -267,7 +267,7 @@ const DashboardFront = () => {
                     <div className="col-xl-4 col-sm-4 col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h2>Projects Under Me</h2>
+                                <h2 className="up-case">Projects Under Me</h2>
                                 <h1>{managerProjects.length}</h1>
                             </div>
                         </div>
@@ -278,7 +278,7 @@ const DashboardFront = () => {
                         <div className="card">
                             <div className="card-body">
 
-                                <h2>Projects Done</h2>
+                                <h2 className="up-case">Projects Done</h2>
                                 <h1>{managerDoneProjects.length}</h1>
                             </div>
                         </div>
@@ -289,7 +289,7 @@ const DashboardFront = () => {
                         <div className="card">
                             <div className="card-body">
 
-                                <h2>Projects Running</h2>
+                                <h2 className="up-case">Projects Running</h2>
                                 <h1>{managerRunningProjects.length}</h1>
 
                             </div>
@@ -405,7 +405,7 @@ const DashboardFront = () => {
                         <div className="col-xl-4 col-sm-4 col-12">
                             <div className="card">
                                 <div className="card-body">
-                                    <h2>Total Projects</h2>
+                                    <h2 className="up-case">Total Projects</h2>
                                     <h1>{myWorks.length}</h1>
                                 </div>
                             </div>
@@ -417,7 +417,7 @@ const DashboardFront = () => {
                             <div className="card">
                                 <div className="card-body">
 
-                                    <h2>Projects Need To Work</h2>
+                                    <h2 className="up-case">Projects Need To Work</h2>
                                     <h1>{myRunningWorks.length}</h1>
                                 </div>
                             </div>
@@ -428,7 +428,7 @@ const DashboardFront = () => {
                             <div className="card">
                                 <div className="card-body">
 
-                                    <h2>Projects Completed</h2>
+                                    <h2 className="up-case">Projects Completed</h2>
                                     <h1>{myCompletedWorks.length}</h1>
 
                                 </div>
@@ -440,7 +440,39 @@ const DashboardFront = () => {
                     <div className="row">
 
                         <div className="col-md-6">
+                            {myRunningWorks.slice(0, 2).map(project => <div key={project._id}>
 
+                                <div className="col-md-12  mt-3">
+                                    <div className="card">
+
+                                        <div className="card-body">
+
+                                            <h4 className="card-title">📌 {project.title}</h4>
+
+
+                                            <small className="text-muted cat">
+                                                <i className="far fa-clock text-info"></i> project deadline : <span className="text-primary">{project.deadline}</span>
+                                            </small>
+
+
+
+                                            <div className="">
+                                                <p><strong>👩‍💻 Project Team :</strong> {project.AssignedMembers.map(member => <span key={member} className="team-member"> {member} </span>)}</p>
+                                            </div>
+
+                                            <p><strong>⚙ Working Process : </strong>{project.instruction} </p>
+
+
+
+                                            <button className="btn btn-info"><NavLink className="card-nav-link" to={`/dashboard/workDetails/${project._id}`}> ▶ See Details & Take Action </NavLink></button>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>)}
                         </div>
 
 

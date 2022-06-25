@@ -75,7 +75,6 @@ const Register = () => {
 
 
 
-
     return (
 
 
@@ -99,6 +98,10 @@ const Register = () => {
                             <br />
 
                             <input className='input-field' {...register("email")} placeholder="Email" type='email' />
+                            <br />
+
+
+                            <input className='input-field' {...register("phone")} placeholder="Phone Number" type='number' />
                             <br />
 
                             <input className='input-field' {...register("password")} placeholder="Password" type='password' />
